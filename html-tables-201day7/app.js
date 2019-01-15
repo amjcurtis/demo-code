@@ -78,12 +78,10 @@ function makeHeaderRow() {
   thEl.textContent = 'Name';
   trEl.appendChild(thEl);
   // repeat for the other header row items: Color and Tail Size
-  //create th element for "Color"
 
 
+  catTable.append(trEl); // Is this right for this function?
 }
-
-
 
 // It would be nice to have a single function that renders all of the individual cat rows
 function renderAllCats() {
