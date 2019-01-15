@@ -49,24 +49,51 @@ new Cat('Diva', 'White', 'Fluffy');
 // console.table(allCats);
 
 Cat.prototype.render = function() {
-
+  // make a <tr> element for cat rows
+  var trEl = document.createElement('tr');
+  // create, content, append for "Name"
+  var tdEl = document.createElement('td');
+  tdEl.textContent = this.name;
+  trEl.appendChild(tdEl);
+  // create, content, append for "Color"
+  tdEl = document.createElement('td'); // Don't need to do 'var' again b/c the variable's already created
+  tdEl.textContent = this.color;
+  trEl.appendChild(tdEl);
+  // create, content, append for "Tail Size"
+  tdEl = document.createElement('td'); // Again, don't need to do 'var' again b/c the var's already created
+  tdEl.textContent = this.tailSize;
+  trEl.appendChild(tdEl);
+  // append the <tr> row itself to the table
+  catTable.append(trEl);
 }
 
 
 // We need a separate function to make the table header
 
 function makeHeaderRow() {
- 
+  // create <th> element for cat rows
+  var trEl = document.createElement('tr');
+  // create th element for "Name"
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Name';
+  trEl.appendChild(thEl);
+  // repeat for the other header row items: Color and Tail Size
+  //create th element for "Color"
+
+
 }
 
 
 
 // It would be nice to have a single function that renders all of the individual cat rows
 function renderAllCats() {
-
+  for (var i= 0; i < allCats.length; i++) {
+    allCats[i].render;
+  }
 }
 
 // Now we need to call our functions: the one for the header row, and the one for generating the individual cat rows
-
+makeHeaderRow();  // If we called *after* we called renderAllCats(), it'd append table header row to bottom of the table
+renderAllCats();
 
 // Don't forget in the Chrome dev tools to observe the difference between the HTML shown in the Sources tab versus the Elements tab!
